@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html style= "height:100%; margin:0px;">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilos.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+        <script>
+            function soloCadena(e, cuadro)
+            {
+                var car;                
+                var keynum;                
+                    if (e.which)
+                        keynum = e.which;                    
+                if ((keynum>=97&&keynum<=122))   
+                {
+                    keynum = keynum - 32;
+                    car = String.fromCharCode(keynum);
+                    cuadro.value = cuadro.value + car;
+                    return false;
+                }                                   
+                else 
+                {
+                    if ((keynum>= 65 && keynum <= 90) || keynum === 32)
+                        return true;
+                    else
+                        return false; 
+                }
+            } 
+        </script>
+    </head>
+    <body style="width: 100%; height: 100%; margin:0px;">
+        <div class="principal">
+            <form action="subirdatos.jsp" method="post" name="formulario">
+                <p>Ingrese Nombre: </p>
+                <input class="input" type="text"  name="nombre" id="nombre" onkeypress="return soloCadena(event);">
+                <br> <br>
+                <p>Ingrese apellido paterno </p>
+                <input class="input" type="text"  name="paterno" id="paterno" onkeypress="return soloCadena(event);">
+                <br> <br>
+                <p> Ingrese apellido materno </p>
+                <input class="input" type="text"  name="materno" id="materno" onkeypress="return soloCadena(event);">
+                <br> <br>
+                <p>Ingrese escuela </p>
+                <input class="input" type="text" name="escuela" id="escuela">
+                <br> <br>
+                <input type="submit" name="subir" value="Sube tus datos" class="submit">  
+            </form>
+        </div>
+    </body>
+</html>
